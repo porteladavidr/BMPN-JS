@@ -49,11 +49,26 @@ document.getElementById('salvar-diagrama').addEventListener('click', async () =>
         const { xml } = await bpmnModeler.saveXML({ format: true });
         console.log("Diagrama salvo com sucesso:", xml);
         const blob = new Blob([xml], { type: 'text/xml' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'diagrama.bpmn';
-        link.click();
+
+        $.ajax({
+            url: "/Diagrama/SaveDiagram",
+            type: 'POST',
+            contentType: 'text/xml',
+            data: { diagram: encodeURIComponent(xml) },
+            success: function (response) {
+                alert(response)
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+
+
+        //const url = URL.createObjectURL(blob);
+        //const link = document.createElement('a');
+        //link.href = url;
+        //link.download = 'diagrama.bpmn';
+        //link.click();
     } catch (err) {
         console.error("Erro ao salvar o diagrama:", err);
     }
