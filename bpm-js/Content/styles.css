@@ -1,0 +1,201 @@
+﻿/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2a3e52;
+    color: #ffffff;
+}
+
+.editor-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #1e2d3a;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.editor-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .editor-header h1 {
+        color: #ffffff;
+        font-size: 24px;
+    }
+
+.editor-body {
+    display: flex;
+    border: 1px solid #394b59;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Contêiner com degradê para a paleta */
+.editor-palette-container {
+    width: 120px;
+    background: linear-gradient(to bottom, #2a3e52, #1a2b42);
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding-top: 10px;
+}
+
+/* Ajuste para o contêiner principal do editor */
+.editor-diagrama-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Estilos para o contêiner do diagrama */
+.editor-diagrama {
+    height: 500px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+/* Estilos para a paleta dentro do contêiner com degradê */
+.djs-palette {
+    width: 100%;
+    padding: 8px 0;
+}
+
+    /* Ajuste para os ícones da paleta */
+    .djs-palette .entry {
+        color: #ffffff;
+        cursor: pointer;
+        padding: 10px;
+        text-align: center;
+        transition: background-color 0.3s;
+        box-sizing: border-box;
+    }
+
+        .djs-palette .entry:hover {
+            background-color: #1a2b42;
+        }
+
+        /* Estilo para os ícones SVG na paleta */
+        .djs-palette .entry svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+        }
+
+/* Ajuste para botões de ações ao redor dos elementos dentro do painel de contexto */
+.djs-context-pad .entry,
+.djs-popup .entry {
+    background-color: #e3f2fd;
+    color: #333333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+    /* Ajuste para ícones SVG dentro dos botões de ação no painel de contexto e modal */
+    .djs-context-pad .entry svg,
+    .djs-popup .entry svg {
+        fill: #333333 !important; /* Ícones em cinza escuro */
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Efeito de hover para botões de ação no painel de contexto e modal */
+    .djs-context-pad .entry:hover,
+    .djs-popup .entry:hover {
+        background-color: #90caf9; /* Tom mais escuro no hover */
+    }
+
+/* Ajustes para a caixa de pesquisa da paleta */
+.djs-search-container {
+    background-color: #2a3e52;
+    color: #ffffff;
+    border: 1px solid #394b59;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+    .djs-search-container input {
+        background-color: #394b59;
+        color: #ffffff;
+        border: none;
+        padding: 5px;
+        width: 100%;
+        border-radius: 4px;
+        outline: none;
+    }
+
+/* Ajuste para a lista de resultados da pesquisa */
+.djs-popup-parent .djs-scrollable {
+    background-color: #2a3e52;
+    color: #ffffff;
+    border: 1px solid #394b59;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+    .djs-popup-parent .djs-scrollable .group {
+        color: #ffffff;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .djs-popup-parent .djs-scrollable .entry {
+        color: #ffffff;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+        .djs-popup-parent .djs-scrollable .entry:hover {
+            background-color: #394b59;
+        }
+
+/* Estilos para o rodapé e botões */
+.editor-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+.botao {
+    padding: 10px 20px;
+    background-color: #4181c3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    .botao:hover {
+        background-color: #316a9f;
+    }
+
+.input-arquivo {
+    margin-left: 10px;
+    color: #333;
+}
+
+.editor-diagrama text {
+    fill: #000000;
+}
+
+.djs-direct-editing-content {
+    color: #000000 !important;
+}
+
+/*Tirar a logo do BPMJS-IO*/
+.bjs-powered-by {
+    display: none;
+}
+

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bpm-js", "bpm-js\bpm-js.csproj", "{AA6F8F9E-8AD2-4C1C-813C-CD0151DEF771}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA6F8F9E-8AD2-4C1C-813C-CD0151DEF771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6F8F9E-8AD2-4C1C-813C-CD0151DEF771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6F8F9E-8AD2-4C1C-813C-CD0151DEF771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6F8F9E-8AD2-4C1C-813C-CD0151DEF771}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52C14CF9-10BD-40AF-B014-38461D3E85E1}
+	EndGlobalSection
+EndGlobal
