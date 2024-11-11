@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bpm_js.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,13 @@ namespace bpm_js.Controllers
     {
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Insert(string value)
+        {
+            DatabaseServices databaseServices = new DatabaseServices();
+            databaseServices.Insert(value);
             return View();
         }
 
