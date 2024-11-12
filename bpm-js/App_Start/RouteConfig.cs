@@ -18,6 +18,12 @@ namespace bpm_js
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Diagrama", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "DiagramaCreate",
+                url: "{controller}/Create/{id}",
+                defaults: new { controller = "Diagrama", action = "Create", id = UrlParameter.Optional }
+            );
         }
     }
 }

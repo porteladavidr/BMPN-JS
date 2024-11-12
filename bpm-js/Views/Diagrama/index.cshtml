@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Editor BPMN";
+    ViewBag.Title = "Lista de Fluxos";
     Layout = null;
 }
 
@@ -8,38 +8,26 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@11.4.1/dist/assets/diagram-js.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@11.4.1/dist/assets/bpmn-font/css/bpmn-embedded.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@11.4.1/dist/assets/bpmn-js.css" />
     <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
+    <div class="container">
+        <h1>Fluxos Criados</h1>
+        <button id="novo-fluxo" class="botao">Novo Fluxo</button>
 
-    <div class="editor-container">
-        <div class="editor-header">
-            <h1>Editor de Diagramas BPMN</h1>
-        </div>
-        <div class="editor-body">
-            <!-- Contêiner fixo com degradê para a paleta -->
-            <div class="editor-palette-container">
-                <!-- O JavaScript inserirá a paleta aqui -->
-            </div>
-            <!-- Contêiner do editor BPMN -->
-            <div class="editor-diagrama-container">
-                <div id="bpmn-container" class="editor-diagrama"></div>
-            </div>
-        </div>
-        <div class="editor-footer">
-            <button id="salvar-diagrama" class="botao">Salvar Diagrama</button>
-            <input type="file" id="importar-diagrama" accept=".xml, .bpmn" class="input-arquivo" style="color: #ffffff;" />
-        </div>
+        <table class="fluxo-tabela">
+            <thead>
+                <tr>
+                    <th>Nome do Fluxo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="fluxo-lista">
+                <!-- Aqui será preenchido pela lista de fluxos trazidos do banco -->
+            </tbody>
+        </table>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-    <script src="https://unpkg.com/bpmn-js@11.4.1/dist/bpmn-modeler.development.js"></script>
-    <script src="~/Scripts/bpmn-diagrama.js"></script>
-
+    <script src="~/Scripts/index.js"></script>
 </body>
 </html>

@@ -12,8 +12,21 @@ function moverPaletaParaContainer() {
     }
 }
 
-(async function () {
-    try {
+async function carregarDiagrama() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fluxoId = urlParams.get('id');
+
+    if (fluxoId) {
+        try {
+            const response = await fetch(`/Diagrama/GetDiagram?id=${fluxoId}`);
+            const fluxo = await response.json();
+            document.getElementById('nome-fluxo').value = fluxo.nome;
+            await bpmnModeler.importXML(fluxo.xml_conteudo);
+            console.log("Diagrama carregado com sucesso.");
+        } catch (err) {
+            console.error("Erro ao carregar o diagrama:", err);
+        }
+    } else {
         const diagramaVazio = `
         <?xml version="1.0" encoding="UTF-8"?>
         <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -37,38 +50,31 @@ function moverPaletaParaContainer() {
         `;
         await bpmnModeler.importXML(diagramaVazio);
         console.log("Diagrama vazio carregado com sucesso.");
-
-        moverPaletaParaContainer();
-    } catch (err) {
-        console.error("Erro ao carregar o diagrama inicial:", err);
     }
-})();
+    moverPaletaParaContainer();
+}
 
 document.getElementById('salvar-diagrama').addEventListener('click', async () => {
     try {
         const { xml } = await bpmnModeler.saveXML({ format: true });
-        console.log("Diagrama salvo com sucesso:", xml);
-        const blob = new Blob([xml], { type: 'text/xml' });
+        const nomeDiagrama = document.getElementById('nome-fluxo').value;
 
-        $.ajax({
-            url: "/Diagrama/SaveDiagram",
-            type: 'POST',
-            contentType: 'text/xml',
-            data: { diagram: encodeURIComponent(xml) },
-            success: function (response) {
-                alert(response)
-            },
-            error: function (response) {
-                console.log(response)
-            }
-        })
+        if (!nomeDiagrama) {
+            alert("O nome do diagrama é obrigatório.");
+            return;
+        }
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const fluxoId = urlParams.get('id');
 
-        //const url = URL.createObjectURL(blob);
-        //const link = document.createElement('a');
-        //link.href = url;
-        //link.download = 'diagrama.bpmn';
-        //link.click();
+        const response = await fetch("/Diagrama/SaveDiagram", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: fluxoId, nome: nomeDiagrama, diagram: xml })
+        });
+
+        const result = await response.json();
+        alert(result.Status);
     } catch (err) {
         console.error("Erro ao salvar o diagrama:", err);
     }
@@ -83,7 +89,6 @@ document.getElementById('importar-diagrama').addEventListener('change', async (e
             try {
                 await bpmnModeler.importXML(xml);
                 console.log("Diagrama importado com sucesso.");
-
                 moverPaletaParaContainer();
             } catch (err) {
                 console.error("Erro ao importar o diagrama:", err);
@@ -92,3 +97,5 @@ document.getElementById('importar-diagrama').addEventListener('change', async (e
         leitor.readAsText(arquivo);
     }
 });
+
+carregarDiagrama();

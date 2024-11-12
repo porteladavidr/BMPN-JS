@@ -173,6 +173,7 @@
     <Content Include="Scripts\bpm-js\bpmn-viewer.development.js" />
     <Content Include="Scripts\bpm-js\bpmn-viewer.production.min.js" />
     <Content Include="Scripts\bpmn-diagrama.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
@@ -198,6 +199,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Diagrama\index.cshtml" />
+    <Content Include="Views\Diagrama\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
